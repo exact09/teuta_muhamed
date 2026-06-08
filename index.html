@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einladung</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <main>
+        <div class="env_wrap" id="envelope">
+            <div class="env_left"></div>
+            <div class="env_right"></div>
+            <div class="env_bottom"></div>
+            <div class="env_top"></div>
+            <div class="wax-seal" onclick="openEnvelope()">
+                <img src="assets/wachssiegel.png" alt="Wachssiegel">
+            </div>
+        </div>
+        <div class="lilien-container hidden" id="lilien">
+            <!-- Language Buttons -->
+            <button class="lang-btn-sq" onclick="switchLanguage('sq')">SQ</button>
+            <button class="lang-btn-en" onclick="switchLanguage('en')">EN</button>
+            <button class="lang-btn-tr" onclick="switchLanguage('tr')">TR</button>
+            <video class="lilien-video" autoplay loop muted playsinline>
+                <source src="assets/lilien.mp4" type="video/mp4">
+            </video>
+            <audio class="lilien-audio">
+                <source src="assets/Once-Upon-A-December-Piano.mp3" type="audio/mpeg">
+            </audio>
+            <div class="invitation-content">
+                <div class="section-title-text">
+                    <p class="invitation-title">Ftesë për Kanagjegj</p>
+                    <p class="invitation-text">
+                        Me zemër plot emocion dhe dashuri, kam kënaqësinë t'ju ftoj të bëheni pjesë e një mbrëmjeje të veçantë për mua, ku çdo moment shndërrohet në një kujtim të paharrueshëm.
+                        <br>
+                        Prania juaj do të jetë nder dhe kënaqësi e veçantë për mua në këtë rrugëtim të ri që po fillon.
+                    </p>
+                </div>
+                <div class="section-flower">
+                    <div class="lily-decoration">
+                        <object data="assets/lily.svg" type="image/svg+xml" class="lily-svg"></object>
+                    </div>
+                </div>
+                <div class="section-signature">
+                    <p class="invitation-signature">
+                        Me respekt dhe përzemërsi,
+                        <br>
+                        Besa Rahimi Medi
+                    </p>
+                </div>
+            </div>
+            <div class="scroll-down" aria-hidden="true">
+                <span class="scroll-text">Scroll down</span>
+                <span class="arrow arrow1"></span>
+                <span class="arrow arrow2"></span>
+            </div>
+        </div>
+
+        <section class="details hidden" id="details">
+            <div class="grid">
+                <article class="card">
+                    <h2>Data &amp; Ora</h2>
+                    <p>E Ejnte, 18 qershor 2026</p>
+                    <p>Hyrja nga ora 18:30</p>
+                </article>
+                <article class="card">
+                    <h2>Restoranti &amp; Lokacioni</h2>
+                    <p>Ahengu</p>
+                    <div class="map-wrapper">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2965.1200525721183!2d20.963427499999995!3d41.997699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1353f09016e2bb77%3A0x3c9fd28edf027a65!2sAhengu!5e0!3m2!1sde!2sde!4v1775661250552!5m2!1sde!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <script>
+        const translations = {
+            sq: {
+                title: "Ftesë për Kanagjegj",
+                text: "Me zemër plot emocion dhe dashuri, kam kënaqësinë t'ju ftoj të bëheni pjesë e një mbrëmjeje të veçantë për mua, ku çdo moment shndërrohet në një kujtim të paharrueshëm.<br>Prania juaj do të jetë nder dhe kënaqësi e veçantë për mua në këtë rrugëtim të ri që po fillon.",
+                signature: "Me respekt dhe përzemërsi,<br>Besa Rahimi Medi",
+                scrollText: "Scroll down",
+                dataTitle: "Data & Ora",
+                dataText1: "E Ejnte, 18 qershor 2026",
+                dataText2: "Hyrja nga ora 18:30",
+                locationTitle: "Restoranti & Lokacioni",
+                locationText: "Ahengu",
+                language: "AL"
+            },
+            en: {
+                title: "Invitation to Kanaqegj",
+                text: "With a heart full of emotion and love, I have the pleasure to invite you to be part of a special evening for me, where every moment turns into an unforgettable memory.<br>Your presence will be an honor and special pleasure for me on this new journey that is beginning.",
+                signature: "With respect and love,<br>Besa Rahimi Medi",
+                scrollText: "Scroll down",
+                dataTitle: "Date & Time",
+                dataText1: "Friday, June 18, 2026",
+                dataText2: "Entrance from 18:30",
+                locationTitle: "Restaurant & Location",
+                locationText: "Ahengu",
+                language: "EN"
+            },
+            tr: {
+                title: "Kınağa Davet",
+                text: "Duygular ve sevgi dolu bir kalple, her anın unutulmaz bir anıya dönüştüğü benim için özel bir gecenin parçası olmanız için sizi davet etmekten büyük mutluluk duyuyorum.<br>Sizin varlığınız, başlayan bu yeni yolculukta benim için bir onur ve özel bir mutluluk olacak.",
+                signature: "Saygı ve sevgiyle,<br>Besa Rahimi Medi",
+                scrollText: "Scroll down",
+                dataTitle: "Tarih & Saat",
+                dataText1: "Cuma, 18 Haziran 2026",
+                dataText2: "Giriş 18:30'da",
+                locationTitle: "Restoran & Konum",
+                locationText: "Ahengu",
+                language: "TR"
+            }
+        };
+
+        let currentLang = 'sq';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            updateTexts();
+            updateButtonStates();
+        }
+
+        function updateButtonStates() {
+            document.querySelector('.lang-btn-sq').classList.toggle('active', currentLang === 'sq');
+            document.querySelector('.lang-btn-en').classList.toggle('active', currentLang === 'en');
+            document.querySelector('.lang-btn-tr').classList.toggle('active', currentLang === 'tr');
+        }
+
+        function updateTexts() {
+            const t = translations[currentLang];
+            
+            document.querySelector('.invitation-title').textContent = t.title;
+            document.querySelector('.invitation-text').innerHTML = t.text;
+            document.querySelector('.invitation-signature').innerHTML = t.signature;
+            document.querySelector('.scroll-text').textContent = t.scrollText;
+            
+            document.querySelector('.card h2').textContent = t.dataTitle;
+            document.querySelectorAll('.card p')[0].textContent = t.dataText1;
+            document.querySelectorAll('.card p')[1].textContent = t.dataText2;
+            document.querySelectorAll('.card h2')[1].textContent = t.locationTitle;
+            document.querySelectorAll('.card p')[2].textContent = t.locationText;
+        }
+
+        function openEnvelope() {
+            document.getElementById('envelope').classList.add('hidden');
+            document.getElementById('lilien').classList.remove('hidden');
+            document.getElementById('details').classList.remove('hidden');
+            
+            const audio = document.querySelector('.lilien-audio');
+            if (audio) {
+                audio.volume = 0.1;
+                audio.currentTime = 35;
+                audio.play().catch(e => console.log('Audio play failed:', e));
+                
+                setTimeout(() => {
+                    if (!audio.paused) {
+                        audio.pause();
+                    }
+                }, 27000);
+            }
+            
+            const lilySvg = document.querySelector('.lily-svg');
+            if (lilySvg) {
+                const data = lilySvg.data;
+                lilySvg.data = '';
+                lilySvg.data = data;
+            }
+        }
+    </script>
+</body>
+</html>
